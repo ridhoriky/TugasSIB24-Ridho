@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-input">
+        <h2>Form</h2>
+        <div class="user-input">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required />
+        </div>
+        <div class="user-input">
+          <label for="email">Email Aktif</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="user-input">
+          <label for="noHp">No HP Aktif</label>
+          <input type="tel" id="noHp" name="noHp" required />
+        </div>
+        <div class="user-input">
+          <label for="jenis_kelamin">Jenis Kelamin</label>
+          <div class="radio">
+            <input
+              type="radio"
+              id="laki_laki"
+              name="jenis_kelamin"
+              value="laki-laki"
+              required />
+            <label for="laki_laki">Laki-laki</label>
+            <input
+              type="radio"
+              id="laki_laki"
+              name="jenis_kelamin"
+              value="perempuan"
+              required />
+            <label for="perempuan">Perempuan</label>
+          </div>
+        </div>
+        <div class="user-input">
+          <label for="prodi">Prodi</label>
+          <select id="prodi" name="prodi" required>
+            <option selected disabled>Pilih</option>
+            <option value="sistem_informasi">Sistem Informasi</option>
+            <option value="teknik_kimia">Teknik Kimia</option>
+            <option value="manajemen">Manajemen</option>
+          </select>
+        </div>
+        <div class="user-input checkbox">
+          <label for="hobi">Hobi</label>
+          <div class="checkbox">
+            <div class="checkbox-item">
+              <input type="checkbox" id="hobi1" name="hobi" value="membaca" />
+              <label for="hobi1">Membaca</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="hobi2" name="hobi" value="menulis" />
+              <label for="hobi2">Menulis</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="hobi3" name="hobi" value="menari" />
+              <label for="hobi3">Menari</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="hobi3" name="hobi" value="olahraga" />
+              <label for="hobi4">Olahraga</label>
+            </div>
+          </div>
+        </div>
+        <div class="user-input">
+          <label for="alamat">Alamat</label>
+          <textarea
+            name="alamat"
+            id="alamat"
+            placeholder="Alamat lengkap"
+            required></textarea>
+        </div>
+        <div class="user-input">
+          <label for="fotoDiri">Foto Diri</label>
+          <input
+            type="file"
+            id="fotoDiri"
+            name="fotoDiri"
+            accept="image/*"
+            required />
+        </div>
+        <input type="submit" value="Daftar" />
+      </form>
+    </div>
+  </body>
+</html>
