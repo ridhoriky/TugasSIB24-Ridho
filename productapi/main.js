@@ -106,30 +106,29 @@ async function updateData(id, newData) {
   const url = `https://crudcrud.com/api/61ae706031aa49fa81d2b2e4bb6b0274/makanan/${id}`;
   try {
     const response = await fetch(url, {
-      method: 'PUT', // atau 'PATCH' tergantung dari kebutuhan API Anda
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify(newData),
     });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    return true; // Return true if update is successful
+    return true;
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
     alert('Terjadi kesalahan saat memperbarui data makanan');
-    return false; // Return false if update fails
+    return false;
   }
 }
 
-// Event listener for update buttons
+// Event listener tombol update
 document
   .getElementById('makananList')
   .addEventListener('click', async (event) => {
     const target = event.target;
     if (target.classList.contains('updateButton')) {
-      // Handle update button click
       const makananItem = target.closest('.makananItem');
-      const idToUpdate = makananItem.dataset.id; // Get the ID of the food item
+      const idToUpdate = makananItem.dataset.id;
 
       // Get existing data
       const nama = makananItem.querySelector('p:nth-of-type(1)').textContent;
@@ -142,21 +141,17 @@ document
         makananItem.querySelector('p:nth-of-type(4)').textContent
       );
 
-      // Populate the update form with existing data
       document.getElementById('updateNama').value = nama;
       document.getElementById('updateDeskripsi').value = deskripsi;
       document.getElementById('updateHarga').value = harga;
       document.getElementById('updateRating').value = rating;
 
-      // Show the update form pop-up
       document.getElementById('updateFormContainer').style.display = 'block';
 
-      // Handle form submission for update
       document
         .getElementById('updateMakananForm')
         .addEventListener('submit', async (event) => {
           event.preventDefault();
-          // Get updated data from the form
           const updatedNama = document.getElementById('updateNama').value;
           const updatedDeskripsi =
             document.getElementById('updateDeskripsi').value;
@@ -167,7 +162,6 @@ document
             document.getElementById('updateRating').value
           );
 
-          // Construct updated data object
           const newData = {
             nama: updatedNama,
             deskripsi: updatedDeskripsi,
@@ -175,18 +169,14 @@ document
             rating: updatedRating,
           };
 
-          // Send update request to the server
           const isUpdated = await updateData(idToUpdate, newData);
           if (isUpdated) {
-            // Hide the update form pop-up after successful update
             document.getElementById('updateFormContainer').style.display =
               'none';
-            // Reload page to reflect updated data
             location.reload();
           }
         });
 
-      // Handle cancel button click to hide the update form pop-up
       document
         .getElementById('cancelUpdateButton')
         .addEventListener('click', () => {
@@ -201,11 +191,9 @@ document
   .addEventListener('click', async (event) => {
     const target = event.target;
     if (target.classList.contains('updateButton')) {
-      // Handle update button click
       const makananItem = target.closest('.makananItem');
-      const idToUpdate = makananItem.dataset.id; // Get the ID of the food item
+      const idToUpdate = makananItem.dataset.id;
 
-      // Get existing data
       const nama = makananItem.querySelector('p.nama').textContent;
       const deskripsi = makananItem.querySelector('p.deskripsi').textContent;
       const harga = parseFloat(
@@ -215,16 +203,13 @@ document
         makananItem.querySelector('p.rating').textContent
       );
 
-      // Populate the update form with existing data
       document.getElementById('updateNama').value = nama;
       document.getElementById('updateDeskripsi').value = deskripsi;
       document.getElementById('updateHarga').value = harga;
       document.getElementById('updateRating').value = rating;
 
-      // Show the update form pop-up
       document.getElementById('updateFormContainer').style.display = 'block';
 
-      // Handle form submission for update
       document
         .getElementById('updateMakananForm')
         .addEventListener('submit', async (event) => {
@@ -240,7 +225,6 @@ document
             document.getElementById('updateRating').value
           );
 
-          // Construct updated data object
           const newData = {
             nama: updatedNama,
             deskripsi: updatedDeskripsi,
@@ -248,18 +232,14 @@ document
             rating: updatedRating,
           };
 
-          // Send update request to the server
           const isUpdated = await updateData(idToUpdate, newData);
           if (isUpdated) {
-            // Hide the update form pop-up after successful update
             document.getElementById('updateFormContainer').style.display =
               'none';
-            // Reload page to reflect updated data
             location.reload();
           }
         });
 
-      // Handle cancel button click to hide the update form pop-up
       document
         .getElementById('cancelUpdateButton')
         .addEventListener('click', () => {
@@ -286,13 +266,12 @@ async function deleteData(id) {
   }
 }
 
-// Event listener for delete buttons
+// Event listener tombol delete
 document
   .getElementById('makananList')
   .addEventListener('click', async (event) => {
     const target = event.target;
     if (target.classList.contains('deleteButton')) {
-      // Handle delete button click
       const makananItem = target.closest('.makananItem');
       const idToDelete = makananItem.dataset.id;
       const isDeleted = await deleteData(idToDelete);
