@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form Makanan</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Makanan</h1>
+      <p><a href="/">Back to Home</a></p>
+    </div>
+    <section>
+      <div class="form">
+        <h2>Tambah Makanan</h2>
+        <form id="makananForm">
+          <label for="nama">Nama Makanan:</label><br />
+          <input type="text" id="nama" name="nama" required /><br /><br />
+
+          <label for="deskripsi">Deskripsi:</label><br />
+          <textarea id="deskripsi" name="deskripsi" required></textarea
+          ><br /><br />
+
+          <label for="harga">Harga:</label><br />
+          <input type="number" id="harga" name="harga" required /><br /><br />
+
+          <label for="rating">Rating:</label><br />
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            step="0.1"
+            min="0"
+            max="5"
+            required /><br /><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      <div class="list">
+        <h2>List Makanan</h2>
+        <div id="makananList"></div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
